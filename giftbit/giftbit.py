@@ -19,7 +19,7 @@ class GiftbitClient(object):
                             " or stored in an environment variable") 
 
         self.api_root = api_root
-        self.auth_header = {'Authorization': 'Basic {}'.format(self.api_key)}
+        self.auth_header = {'Authorization': 'Bearer {}'.format(self.api_key)}
 
     def api_url(self, endpoint):
         """
@@ -49,3 +49,27 @@ class GiftbitClient(object):
             )
 
         return ping_request.status_code == 200
+
+    def list_brands(self, **kwargs):
+        """
+        Returns a list of available brands from the API. 
+        """
+        url = self.api_url('brands')
+
+        return requests.get(
+            url,
+            headers=self.auth_header,
+            params=kwargs,
+        ).json()
+
+    def get_brand(self, brand_code, **kwargs):
+        """
+        Returns a single brand from the API. 
+        """
+        url = self.api_url('brands/{}'.format(brand_code))
+
+        return requests.get(
+            url,
+            headers=self.auth_header,
+            params=kwargs,
+        ).json()

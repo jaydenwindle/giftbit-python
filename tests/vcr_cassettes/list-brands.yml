@@ -1,0 +1,66 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Bearer correct_test_key]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://api-testbed.giftbit.com/papi/v1/brands
+  response:
+    body:
+      string: !!binary |
+        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
+        AP//AwDXxekgiBMAAA==
+    headers:
+      Cache-Control: ['private, max-age=60', no-cache="set-cookie"]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['1894']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Wed, 06 Jun 2018 23:41:37 GMT']
+      Expires: ['Wed, 06 Jun 2018 23:42:38 GMT']
+      Last-Modified: ['Wed, 06 Jun 2018 23:41:38 GMT']
+      P3P: [CP="Giftbit"]
+      Server: [Apache-Coyote/1.1]
+      Vary: [Accept-Encoding]
+      Via: [1.1 09fc52f58485a5da8e63d1ea27596895.cloudfront.net (CloudFront)]
+      X-Amz-Cf-Id: [BdmEA022QhCnZXvnH8HNXv45hiJhnhiO-8RWpmZM1pnqkNIpGK0rxw==]
+      X-Cache: [Miss from cloudfront]
+      X-FRAME-OPTIONS: [SAMEORIGIN]
+    status: {code: 200, message: OK}
+version: 1

@@ -12,6 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/jaydenwindle/giftbit-python",
+    download_url = 'https://github.com/jaydenwindle/giftbit-python/archive/0.1.tar.gz',
     packages=setuptools.find_packages(),
     classifiers=(
         "Programming Language :: Python :: 3",

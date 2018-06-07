@@ -23,14 +23,14 @@ client = GiftbitClient()
 
 By default, the `GiftbitClient` uses Giftbit's testbed API. To use the production API server, do the following: 
 ```python
-from giftbit import GiftbitClient, 
+from giftbit import GiftbitClient
 
 client = GiftbitClient(testbed=False)
 ```
 
 You can check to see if the client is configured correctly by using the ping method
 ```python
-from giftbit import GiftbitClient, 
+from giftbit import GiftbitClient
 
 client = GiftbitClient(testbed=False)
 
@@ -44,7 +44,7 @@ print(result)
 ### List Brands 
 
 ```python
-from giftbit import GiftbitClient, 
+from giftbit import GiftbitClient
 
 client = GiftbitClient()
 
@@ -57,7 +57,7 @@ for brand in result['brands']:
 ### Get Individual Brand
 
 ```python
-from giftbit import GiftbitClient, 
+from giftbit import GiftbitClient
 
 client = GiftbitClient()
 

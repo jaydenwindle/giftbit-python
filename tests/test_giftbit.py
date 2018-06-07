@@ -52,9 +52,11 @@ def test_ping_warning():
 
     client = GiftbitClient(api_key="test_key")
 
-    with pytest.warns(Warning):
-        result = client.ping()
-        assert result == False
+    result = client.ping()
+
+    print(result)
+
+    assert 'error' in result
 
 @vcr.use_cassette('tests/vcr_cassettes/ping-success.yml')
 def test_ping_success():
@@ -66,7 +68,8 @@ def test_ping_success():
     client = GiftbitClient(api_key="correct_test_key")
 
     result = client.ping()
-    assert result == True
+
+    assert not 'error' in result
 
 @vcr.use_cassette('tests/vcr_cassettes/list-brands.yml')
 def test_list_brands():

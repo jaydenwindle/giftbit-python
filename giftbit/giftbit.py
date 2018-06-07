@@ -10,7 +10,7 @@ class GiftbitClient(object):
     The main client for making requests to the Giftbit API
     """
 
-    def __init__(self, api_key=None, api_root=GIFTBIT_TEST_ROOT):
+    def __init__(self, api_key=None, testbed=True):
         super(GiftbitClient, self).__init__()
 
         self.api_key = api_key or os.environ.get('GIFTBIT_API_KEY')
@@ -18,7 +18,11 @@ class GiftbitClient(object):
             raise Exception("API key must be specified in constructor " +
                             " or stored in an environment variable") 
 
-        self.api_root = api_root
+        if testbed:
+            self.api_root = GIFTBIT_TEST_ROOT
+        else:
+            self.api_root = GIFTBIT_PROD_ROOT
+
         self.auth_header = {'Authorization': 'Bearer {}'.format(self.api_key)}
 
     def api_url(self, endpoint):
@@ -38,17 +42,9 @@ class GiftbitClient(object):
         :returns: boolean indicating if API is configured correctly or not.
         """
 
-        ping_request = requests.get(self.api_url('ping'), headers=self.auth_header)
+        url = self.api_url('ping')
 
-        print(ping_request.json())
-
-        if ping_request.status_code != 200:
-            warnings.warn(
-                "Received status code {} from {}. Are you sure your API key is correct?"
-                    .format(ping_request.status_code, self.api_url('ping'))
-            )
-
-        return ping_request.status_code == 200
+        return requests.get(url, headers=self.auth_header).json()
 
     def list_brands(self, **kwargs):
         """
